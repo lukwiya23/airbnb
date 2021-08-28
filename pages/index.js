@@ -41,8 +41,9 @@ export default function Home({exploreData, cardData}) {
               description='Wishlist curated by airbnb'
               buttonText='Get Inspired'
               />
-             <Footer /> 
+           
       </main>
+      <Footer /> 
       
     </div>
   );

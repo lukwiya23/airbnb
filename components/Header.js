@@ -11,6 +11,7 @@ import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRangePicker } from "react-date-range";
 import {useRouter} from 'next/dist/client/router'
+import {format} from 'date-fns'
 
 function Header({placeholder}) {
   const [searchInput, setSearchInput] = useState("");
@@ -28,8 +29,8 @@ function Header({placeholder}) {
       pathname:'/search',
       query:{
         location:searchInput,
-        startDate:startDate.toISOString(),
-        endDate:endDate.toISOString(),
+        startDate:startDate.toString(),
+        endDate:endDate.toString(),
         noOfGuests
       }
     })
@@ -39,13 +40,13 @@ function Header({placeholder}) {
   const selectionRange = {
     startDate: startDate,
     endDate: endDate,
-    key: "Selection",
+    key: "selection",
   };
 
   //HANDLE SELECTED DATES
   const handleSelect = (ranges) => {
-    setStartDate(ranges.Selection.startDate);
-    setEndDate(ranges.Selection.endDate);
+    setStartDate(ranges.selection.startDate);
+    setEndDate(ranges.selection.endDate);
   };
 
   //RESET INPUT (CANCEL BUTTON)
